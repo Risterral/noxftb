@@ -21,7 +21,9 @@ public class DatabasePresenter {
         database.executeUpdate("CREATE DATABASE IF NOT EXISTS " + SCHEMA_NAME);
         database.executeUpdate("CREATE TABLE IF NOT EXISTS " + SCHEMA_NAME + "." + VOTING_TABLE_NAME +
                 " ( id INT NOT NULL PRIMARY KEY," +
-                " name VARCHAR(40) NOT NULL )");
+                " name VARCHAR(40) NOT NULL," +
+                " voting_number id," +
+                " last_voting_date DATETIME )");
     }
 
     public MySQL getDatabase() {
