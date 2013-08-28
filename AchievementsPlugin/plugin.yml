@@ -1,0 +1,22 @@
+name: AchievementsPlugin
+main: com.gmail.risterral.AchievementsPlugin
+version: 1.0
+
+commands:
+  achievements:
+    description: Displays avalible commands.
+    usage: "Usage: '/achievements' to get all avalible commands."
+  achievement:
+    description: Many more functions (TODO).
+    usage: "Usage: guess it (TODO)."
+  basic:
+     description: This is a demo command.
+     usage: /basic [player]
+     permission: AchievementsPlugin.basic
+     permission-message: You don't have <permission>
+  pos:
+    description: Displays your where or teleports you to another.
+    usage: "Usage: '/pos' to get current where, or '/pos x y z' to teleport to x,y,z"
+  debug:
+    description: Toggles your debugging status for this plugin.
+    usage: /debug

@@ -1,0 +1,77 @@
+Achievement 1:
+  Id: 1
+  Name: Test achievement 0
+  Hidden: false
+  Type: Placing items.
+  Points: 5
+  Description: Here will be very nice description
+  Requirements:
+    Place:
+      What: SAND
+      Amount: 1
+    Die:
+      Cause: ENTITY_ATTACK
+      Amount: 3
+      Killer: Zombie
+  Reward:
+    Message: This is sample message when You earn achie 2.
+    Experience: 100
+    Items:
+      Item 1:
+        Id: 1
+        Amount: 10
+        Description: This is item description.
+        Lore: This is item lore.
+      Item 2:
+        Id: 10
+        Amount: 5
+        Description: This is item description 2.
+        Lore: This is item lore 2.
+Achievement 2:
+  Id: 2
+  Name: Test achievement 1
+  Hidden: false
+  Type: Killing.
+  Points: 10
+  Description: Here will be very nice description
+  Requirements:
+    Kill:
+      What: Zombie
+      Amount: 5
+      Where: OCEAN
+  Reward:
+    Message: This is sample message when You earn achie 2.
+    Experience: 100
+    Items:
+      Item 1:
+        Id: 1
+        Amount: 20
+        Description: This is item description.
+        Lore: This is item lore.
+Achievement 3:
+  Id: 3
+  Name: Test achievement 2
+  Hidden: false
+  Type: Getting killed.
+  Points: 15
+  Description: Here will be very nice description
+  Requirements:
+    Die:
+      Cause: ENTITY_ATTACK
+      Amount: 1
+      Killer: Zombie
+  Reward:
+    Message: This is sample message when You earn achie 3.
+    Reward: reward 2
+Achievement 4:
+  Id: 4
+  Name: Winner of build competition "Golf Tour"
+  Hidden: false
+  Type: Special.
+  Points: 0
+  Description: Achievement only grantable by admins.
+  Requirements:
+    Special: Only grantable.
+  Reward:
+    Message: This is sample message when You earn achie 3.
+    Reward: reward 3

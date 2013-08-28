@@ -1,0 +1,14 @@
+name: OpeningEventPlugin
+main: com.gmail.risterral.openingeventplugin.OpeningEventPlugin
+version: 1.2.1
+
+commands:
+  register:
+    description: Commands to register event at target location.
+    usage: "To see commands list, type in '/openingevent [page]'"
+  unregister:
+    description: Commands to unregister event.
+    usage: "To see commands list, type in '/openingevent [page]'"
+  openingevent:
+    description: Commands displaying events.
+    usage: "To see commands list, typ in '/openingevent [page]'"
