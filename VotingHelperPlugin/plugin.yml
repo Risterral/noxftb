@@ -1,0 +1,8 @@
+name: VotingHelperPlugin
+main: com.noxftb.www.votinghelperplugin.VotingHelperPlugin
+version: 1.0.0
+
+commands:
+  xyz:
+    description: TODO.
+    usage: "TODO"
