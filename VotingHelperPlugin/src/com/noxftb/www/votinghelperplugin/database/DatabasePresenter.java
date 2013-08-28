@@ -3,20 +3,20 @@ package com.noxftb.www.votinghelperplugin.database;
 import com.noxftb.www.votinghelperplugin.player.PlayerDto;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class DatabasePresenter {
 
     private static final String SCHEMA_NAME = "voting_helper_plugin";
     private static final String VOTING_TABLE_NAME = "voting";
 
-    private final JavaPlugin plugin;
     private final MySQL database;
 
     public DatabasePresenter(JavaPlugin plugin) {
-        this.plugin = plugin;
         database = new MySQL(plugin, "89.69.176.101", "3306", "test", "Risterral", "ZAQ!2wsx");
         database.openConnection();
         prepareDatabase();
@@ -46,7 +46,25 @@ public class DatabasePresenter {
                 addPlayerToDatabase(playerName);
                 result.setNumberOfVotes(0);
             }
-            result.setName(playerName);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public List<String> getOutdatedPlayers(Integer hours) {
+        List<String> result = new ArrayList<String>();
+        if (!database.checkConnection()) {
+            return result;
+        }
+
+        try {
+            ResultSet resultSet = database.executeQuery("SELECT * FROM " + SCHEMA_NAME + "." + VOTING_TABLE_NAME +
+                    " WHERE last_voting_date < DATE_ADD(NOW(), INTERVAL -" + hours + " HOUR)");
+            while (resultSet.next()) {
+                result.add(resultSet.getString("name"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

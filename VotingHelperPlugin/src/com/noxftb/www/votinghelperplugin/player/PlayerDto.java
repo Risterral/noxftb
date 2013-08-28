@@ -1,19 +1,11 @@
 package com.noxftb.www.votinghelperplugin.player;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 public class PlayerDto {
-    private String name;
     private Integer numberOfVotes;
     private Date lastVotingDate;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Integer getNumberOfVotes() {
         return numberOfVotes;
@@ -40,7 +32,6 @@ public class PlayerDto {
 
         if (lastVotingDate != null ? !lastVotingDate.equals(playerDto.lastVotingDate) : playerDto.lastVotingDate != null)
             return false;
-        if (name != null ? !name.equals(playerDto.name) : playerDto.name != null) return false;
         if (numberOfVotes != null ? !numberOfVotes.equals(playerDto.numberOfVotes) : playerDto.numberOfVotes != null)
             return false;
 
@@ -49,8 +40,7 @@ public class PlayerDto {
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (numberOfVotes != null ? numberOfVotes.hashCode() : 0);
+        int result = numberOfVotes != null ? numberOfVotes.hashCode() : 0;
         result = 31 * result + (lastVotingDate != null ? lastVotingDate.hashCode() : 0);
         return result;
     }

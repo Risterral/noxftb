@@ -14,5 +14,6 @@ public class ListenersPresenter {
 
     private void registerListeners() {
         PluginManager pluginManager = plugin.getServer().getPluginManager();
+        pluginManager.registerEvents(new PlayerListener(plugin), plugin);
     }
 }
