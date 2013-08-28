@@ -1,13 +1,11 @@
 package com.noxftb.www.votinghelperplugin.database;
 
 import com.noxftb.www.votinghelperplugin.player.PlayerDto;
-import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
 
 public class DatabasePresenter {
 
@@ -40,7 +38,7 @@ public class DatabasePresenter {
         }
 
         try {
-            ResultSet resultSet = database.executeQuery("SELECT * FROM " + SCHEMA_NAME + "." + VOTING_TABLE_NAME  + " WHERE name = '" + playerName + "'");
+            ResultSet resultSet = database.executeQuery("SELECT * FROM " + SCHEMA_NAME + "." + VOTING_TABLE_NAME + " WHERE name = '" + playerName + "'");
             if (resultSet.next()) {
                 result.setNumberOfVotes(resultSet.getInt("voting_number"));
                 result.setLastVotingDate(resultSet.getDate("last_voting_date"));
@@ -54,6 +52,11 @@ public class DatabasePresenter {
         }
 
         return result;
+    }
+
+    public void updatePlayerVote(String playerName, Integer numberOfVotes, Date lastVotingDate) {
+        database.executeUpdate("UPDATE " + SCHEMA_NAME + "." + VOTING_TABLE_NAME + " SET voting_number = " + numberOfVotes +
+                ", last_voting_date = " + lastVotingDate + " WHERE name = '" + playerName + "'");
     }
 
     private void addPlayerToDatabase(String playerName) {
